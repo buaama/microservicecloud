@@ -1,0 +1,19 @@
+server:
+  port: 81
+spring:
+  application:
+    name: feignconsumer81
+feign:
+  hystrix:
+    enabled: true
+
+
+
+eureka:
+  client:
+    service-url:
+      #defaultZone:  http://10.128.202.134:7001/eureka/ #eureka server（register center）single
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #cluster
+  instance:
+    instance-id: microservicecloud-dept-feign-consumer81 #eureka consumer client
+    prefer-ip-address: true #eureka show the client's ip

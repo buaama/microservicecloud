@@ -1,0 +1,13 @@
+server:
+  port: 7001
+eureka:
+  server:
+    enable-self-preservation: false # turn off eureka' self protection
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #it means don't register itself into register's center
+    fetch-registry: false #show itself is the register center
+    service-url:
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #config eurekaServer's ip。。。${}means find in this file
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/

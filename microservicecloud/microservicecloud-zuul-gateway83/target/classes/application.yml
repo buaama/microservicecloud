@@ -1,0 +1,23 @@
+server:
+  port: 83
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka,http://eureka7001.com:80/eureka,http://eureka7002.com:81/eureka,http://eureka7003.com:82/eureka
+  instance:
+    instance-id: gateway-83.com
+    prefer-ip-address: true
+zuul:
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+  ignored-services: microservicecloud-dept #or "*"
+  prefix: /mzz
+info:
+  app.name: mzz-microcloud
+  company.name: com.mzz
+  builder.artifactId: $project.artifactId$
+  builder.version: $project.version$
